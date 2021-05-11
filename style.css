@@ -78,7 +78,7 @@ html {
 }
 
 .preview-card__column--suvs .preview-card__heading:after {
-  content: "Sports Utility Vehicles";
+  content: attr(data-title);
   position: absolute;
   top: 15px;
   width: 200px;
