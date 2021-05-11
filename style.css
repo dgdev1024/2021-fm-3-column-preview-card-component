@@ -1,0 +1,168 @@
+/** Variables **/
+:root {
+  --color-bright-orange: hsl(31, 77%, 52%);
+  --color-dark-cyan: hsl(184, 100%, 22%);
+  --color-very-dark-cyan: hsl(179, 100%, 13%);
+  --color-very-dark-gray: hsl(0, 0%, 25%);
+  --color-transparent-white: hsla(0, 0%, 100%, 0.75);
+  --color-very-light-gray: hsl(0, 0%, 95%);
+  --font-family-normal: "Lexend Deca", sans-serif;
+  --font-family-heading: "Big Shoulders Display", cursive;
+  --font-weight-normal: 400;
+  --font-weight-heading: 700;
+  --time-transition: 0.3s;
+}
+
+/** Reset **/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: var(--font-family-normal);
+  font-weight: var(--font-weight-normal);
+}
+
+/** Root Font Size **/
+html {
+  font-size: 15px;
+  background-color: var(--color-very-light-gray);
+}
+
+/** Main Content **/
+.main {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+/** Preview Card **/
+.preview-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 95%;
+  max-width: 1000px;
+  overflow: hidden;
+  margin: 96px auto;
+  border-radius: 8px;
+}
+
+.preview-card__column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 48px;
+  background-color: var(--color-very-dark-gray);
+}
+
+.preview-card__column--sedans {
+  background-color: var(--color-bright-orange);
+}
+
+.preview-card__column--suvs {
+  background-color: var(--color-dark-cyan);
+}
+
+.preview-card__column--luxury {
+  background-color: var(--color-very-dark-cyan);
+}
+
+.preview-card__heading {
+  position: relative;
+  font-size: 2.5rem;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading);
+  text-transform: uppercase;
+  color: var(--color-transparent-white);
+}
+
+.preview-card__column--suvs .preview-card__heading:after {
+  content: "Sports Utility Vehicles";
+  position: absolute;
+  top: 15px;
+  width: 200px;
+  margin-left: 16px;
+  font-size: 1rem;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: var(--time-transition);
+}
+
+.preview-card__column--suvs .preview-card__heading:hover:after {
+  opacity: 1;
+}
+
+.preview-card__text {
+  color: var(--color-transparent-white);
+  line-height: 1.75rem;
+  margin-bottom: 64px;
+}
+
+.preview-card__cta {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  padding: 16px 32px;
+  color: var(--color-very-dark-gray);
+  background-color: var(--color-transparent-white);
+  border: none;
+  border-radius: 32px;
+  transition-property: color, background-color;
+  transition-duration: var(--time-transition);
+}
+
+.preview-card__cta:hover {
+  padding: 15px 31px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--color-transparent-white) !important;
+  border: 1px solid var(--color-transparent-white);
+}
+
+.preview-card__column--sedans .preview-card__cta {
+  color: var(--color-bright-orange);
+}
+
+.preview-card__column--suvs .preview-card__cta {
+  color: var(--color-dark-cyan);
+}
+
+.preview-card__column--luxury .preview-card__cta {
+  color: var(--color-very-dark-cyan);
+}
+
+.preview-card__attribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  background-color: var(--color-very-dark-gray);
+}
+
+.preview-card__attribution .preview-card__text {
+  margin: 0px;
+}
+
+.preview-card__link {
+  color: white;
+  text-decoration: none;
+}
+
+.preview-card__link:hover {
+  text-decoration: underline;
+}
+
+/** Medium Screens */
+@media (min-width: 800px) {
+  .preview-card {
+    margin: 0px auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .preview-card__attribution {
+    grid-column: 1 / 4;
+  }
+}
